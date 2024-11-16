@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex1 Javier A. G.</title>
+  <link rel="stylesheet" href="flex1.css">
+</head>
+
+<style>
+  body {
+    margin: 0px;
+  }
+
+  .cabecera {
+    background-color: rgb(54, 51, 51);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 18px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 1px;
+    left: 0px;
+  }
+
+  .logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .menu a {
+    color: white;
+    text-decoration: none;
+    position: relative; /*Si no es relativo aplica la animación a toda la cabecera*/
+    padding: 10px 20px; /*Hay que ampliar la caja para que se vea bien la animación*/
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .imagen {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .noticias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 70px 0px;
+  }
+
+  .noticia-destacada {
+    width: 100%;
+    margin: 20px;
+    box-shadow: 0px 0px 5px 5px grey;
+  }
+
+  .noticia-destacada .imagen {
+    height: 400px;
+  }
+
+  .noticia {
+    flex-basis: 20%;
+    flex-grow: 1;
+    margin: 20px;
+    box-shadow: 0px 0px 5px 5px grey;
+  }
+
+  .pie-de-pagina {
+    background-color: rgb(54, 51, 51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 18px;
+    width: 100%;
+  }
+
+  .menu a::before,
+
+  .menu a::after {
+
+    content: '';
+    position: absolute;
+    height: 50%;
+    background-color: rgb(156, 156, 156);
+    transition: width 0.5s ease;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .menu a::before {
+    border-radius: 10px 10px 0 0;
+    top: 0; /*Hay que ponerlo a 0 para que se pega a la mitad superior de div*/
+    left: 0; /*Si no se pone a 0, empieza desde la mitad*/
+    width: 0%; /*Si no se pone a 0, no hace recorrido, porque empieza en 100%*/
+  }
+
+  .menu a::after {
+    border-radius: 0 0 10px 10px;
+    bottom: 0;
+    right: 0;
+    width: 0%;
+  }
+
+  .menu a:hover::before {
+    width: 100%;
+  }
+
+  .menu a:hover::after {
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div class="cabecera">
+    <div class="logo">Logo</div>
+    <div class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Noticias</a>
+      <a href="#">Avisos</a>
+    </div>
+  </div>
+  <div class="noticias">
+    <div class="noticia-destacada">
+      <div class="imagen" style="background-image: url('https://picsum.photos/800/800?random=1')"></div>
+      <div class="titulo">Noticia destacada</div>
+      <div class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+        vestibulum magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</div>
+    </div>
+    <div class="noticia">
+      <div class="imagen" style="background-image: url('https://picsum.photos/800/800?random=2')"></div>
+      <div class="titulo">Noticia 1</div>
+      <div class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+        vestibulum magna sed, convallis ex.</div>
+    </div>
+    <div class="noticia">
+      <div class="imagen" style="background-image: url('https://picsum.photos/800/800?random=3')"></div>
+      <div class="titulo">Noticia 2</div>
+      <div class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+        vestibulum magna sed, convallis ex.</div>
+    </div>
+    <div class="noticia">
+      <div class="imagen" style="background-image: url('https://picsum.photos/800/800?random=4')"></div>
+      <div class="titulo">Noticia 3</div>
+      <div class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+        vestibulum magna sed, convallis ex.</div>
+    </div>
+    <div class="noticia">
+      <div class="imagen" style="background-image: url('https://picsum.photos/800/800?random=5')"></div>
+      <div class="titulo">Noticia 4</div>
+      <div class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+        vestibulum magna sed, convallis ex.</div>
+    </div>
+    <div class="noticia">
+      <div class="imagen" style="background-image: url('https://picsum.photos/800/800?random=6')"></div>
+      <div class="titulo">Noticia 5</div>
+      <div class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+        vestibulum magna sed, convallis ex.</div>
+    </div>
+  </div>
+  <div class="pie-de-pagina">
+    <div>
+      <img src="img/email-icon.png" alt="">
+      <input type="text" name="" placeholder="Ingresa tu correo" id="">
+    </div>
+  </div>
+</body>
+
+</html>
