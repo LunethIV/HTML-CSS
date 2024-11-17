@@ -42,14 +42,26 @@
 
      /* Animaciones */
 
-     .tarjeta:hover {
-          background-color: white;
-          transition-duration: 1s;
+     .tarjeta::before {
+          content: '';
+          position: absolute;
+          /*Posición absoluta respecto al padre .contenedor*/
+          height: 100%;
+          /*Ocupa el 100% del alto del div*/
+          background-color: rgb(255, 255, 255);
+          transition: width 0.5s ease;
+          /*cuando cambie el ancho, lo hará de forma suave durante 0.5 segundos*/
+          opacity: 1;
+          width: 0%;
+          /*Si no se pone a 0, no hace recorrido, porque empieza en 100%*/
      }
-     
-     img:hover {
-          opacity: 0;
+
+     .tarjeta:hover::before {
+          width: 100%;
      }
+
+
+
 </style>
 
 <body>
