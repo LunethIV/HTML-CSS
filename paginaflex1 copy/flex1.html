@@ -9,7 +9,6 @@
 </head>
 
 <style>
-
   /* Maquetación */
   body {
     margin: 0px;
@@ -36,8 +35,10 @@
   .menu a {
     color: white;
     text-decoration: none;
-    position: relative; /*Si no es relativo aplica la animación a toda la cabecera*/
-    padding: 10px 20px; /*Hay que ampliar la caja para que se vea bien la animación*/
+    position: relative;
+    /*Si no es relativo aplica la animación a toda la cabecera*/
+    padding: 10px 20px;
+    /*Hay que ampliar la caja para que se vea bien la animación*/
   }
 
   .menu {
@@ -79,22 +80,24 @@
 
   .pie-de-pagina {
     background-color: rgb(54, 51, 51);
+    padding: 18px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .pie-de-pagina > div{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 18px;
-    width: 100%;
   }
 
-  .noticias .noticia-destacada .titulo{
+  .noticias .noticia-destacada .titulo {
     font-size: 40px;
     font-weight: bold;
   }
 
-  .noticias .noticia .titulo{
+  .noticias .noticia .titulo {
     font-size: large;
     font-weight: bold;
   }
@@ -115,9 +118,12 @@
 
   .menu a::before {
     border-radius: 10px 10px 0 0;
-    top: 0; /*Hay que ponerlo a 0 para que se pega a la mitad superior de div*/
-    left: 0; /*Si no se pone a 0, empieza desde la mitad*/
-    width: 0%; /*Si no se pone a 0, no hace recorrido, porque empieza en 100%*/
+    top: 0;
+    /*Hay que ponerlo a 0 para que se pega a la mitad superior de div*/
+    left: 0;
+    /*Si no se pone a 0, empieza desde la mitad*/
+    width: 0%;
+    /*Si no se pone a 0, no hace recorrido, porque empieza en 100%*/
   }
 
   .menu a::after {
@@ -134,6 +140,40 @@
   .menu a:hover::after {
     width: 100%;
   }
+
+  .pie-de-pagina input{ 
+    /*
+    margin-left mete el input dentro del sobre
+    z-index lo pone una capa por debajo del sobre
+    padding-left separar la letra del inicio del input hacia la derecha
+    width para que sea pequeño
+    opacity para que no se muestre al principio
+    transition le dice que estilo es que el tiene que hacer la transición y en cuanto tiempo (cuando cambie el width lo haces en 1s y opacity en 0.5s)
+    */
+    margin-left: -10px;
+    z-index: 0;
+    padding-left: 10px;
+    width: 0%;
+    opacity: 0;
+    transition: width 1s, opacity 0.5s;
+    border-radius: 0px 10px 10px 0px;
+  }
+
+  input:hover{
+    /*Para que no se pierda la animación de la línea 173, es necesario aplicar lo mismo al input a parte de a la imagen*/
+    opacity: 1;
+    width: 12%;
+  }
+
+  .pie-de-pagina img{
+    z-index: 1;
+  }
+
+  .pie-de-pagina img:hover + input {
+  /*Cuando le haga hover a la imagen, aplica estos estilos al input*/
+  opacity: 1; /* Estilo del input al pasar el ratón sobre la imagen */
+  width: 12%; /* Posición final del input */
+}
 </style>
 
 <body>
@@ -184,12 +224,14 @@
         vestibulum magna sed, convallis ex.</div>
     </div>
   </div>
+
   <div class="pie-de-pagina">
     <div>
       <img src="img/email-icon.png" alt="">
       <input type="text" name="" placeholder="Ingresa tu correo" id="">
     </div>
   </div>
+
 </body>
 
 </html>
